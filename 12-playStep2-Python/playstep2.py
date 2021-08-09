@@ -35,4 +35,39 @@
 
 def playstep2(hand, dice):
 	# your code goes here
-	pass
+	l=[]
+	for i in str(hand):
+		l.append(int(i))
+	if l[1] !=l[2] and l[2]!=l[0] and l[0]!=l[1]:
+		l.sort()
+		a=dice%10
+		dice=dice//10
+		b=dice%10
+		dice=dice//10
+		l[0]=a 
+		l[1]=b
+		l.sort(reverse=True)
+		s=""
+		for i in l:
+			s += str(i)
+		return (int(s),dice)
+	else:
+		
+		a=dice%10
+		dice=dice//10
+		if l[1]==l[2]:
+			l[0]=a
+		if l[0]==l[1]:
+			l[2]=a
+		if l[0]==l[2]:
+			l[1]=a
+
+		l.sort(reverse=True)
+		s=""
+		for i in l:
+			s += str(i)
+		return (int(s),dice)
+		return (l,dice) 
+
+
+	# pass
