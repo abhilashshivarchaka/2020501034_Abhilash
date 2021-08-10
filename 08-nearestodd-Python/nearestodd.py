@@ -6,6 +6,16 @@
 
 
 def fun_nearestodd(n):
-	return 0
+	
+	a=(n//1)
+	if abs(n-a)>0:
+		a+=1
+
+	if a %2==0:
+		return int(a-1)
+	else: 
+		return int(a)
+
+	# return 0
 
 
