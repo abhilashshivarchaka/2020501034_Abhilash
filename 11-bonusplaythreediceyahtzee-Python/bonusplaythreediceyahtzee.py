@@ -41,4 +41,86 @@
 
 def bonusplaythreediceyahtzee(dice):
 	# Your code goes here
-	pass
+	hand1=dice%1000
+	dice1=dice//1000
+	h1,d1=playstep2(hand1,dice1)
+	h2,d2=playstep2(h1,d1)
+	s=checkscore(h2)
+	return h2,s
+
+	# pass
+
+
+def handtodice(hand):
+	# your code goes here
+	# pass
+	c=hand%10
+	hand=hand//10
+	b=hand%10
+	hand=hand//10
+	a=hand%10
+	return (a,b,c) 
+
+
+def dicetoorderedhand(a, b, c):
+	# your code goes here
+
+	l=[a,b,c]
+	
+	l.sort()
+	r=l[0]+(l[1]*10)+(l[2]*100)
+	return r
+	# pass
+
+
+def playstep2(hand, dice):
+	# your code goes here
+	# pass 
+	l=[]
+	for i in str(hand):
+		l.append(int(i))
+	if(l[1]==l[2] and l[2]==l[0] and l[0]==l[1]):
+		return(hand,dice)
+
+	if l[1] !=l[2] and l[2]!=l[0] and l[0]!=l[1]:
+		l.sort()
+		a=dice%10
+		dice=dice//10
+		b=dice%10
+		dice=dice//10
+		l[0]=a 
+		l[1]=b
+		l.sort(reverse=True)
+		s=""
+		for i in l:
+			s += str(i)
+		return (int(s),dice)
+	else:
+
+		a=dice%10
+		dice=dice//10
+		if l[1]==l[2]:
+			l[0]=a
+		if l[0]==l[1]:
+			l[2]=a
+		if l[0]==l[2]:
+			l[1]=a
+
+		l.sort(reverse=True)
+		s=""
+		for i in l:
+			s += str(i)
+		return (int(s),dice)
+		return (l,dice) 
+def checkscore(hand):
+	a,b,c=handtodice(hand)
+	arr=[a,b,c]
+	score=0
+	arr.sort()
+	if(a!=b and b!=c and c!=a):
+		score=arr[2]
+	elif((a==b and b!=c) or (b==c and c!=a)):
+		score=10+b+b
+	elif(a==b and b==c):
+		score=20+a+a+a
+	return score
