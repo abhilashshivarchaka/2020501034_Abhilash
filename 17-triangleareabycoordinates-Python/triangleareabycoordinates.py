@@ -6,4 +6,17 @@
 
 def triangleareabycoordinates(x1, y1, x2, y2, x3, y3):
 	# your code goes here
-	pass
+	a=((x2-x1)**2 + (y2-y1)**2)**0.5
+	b=((x3-x2)**2 + (y3-y2)**2)**0.5
+	c=((x3-x1)**2 +(y3-y1)**2)**0.5
+	result=trianglearea(a,b,c)
+	return result
+
+	# pass
+
+def trianglearea(s1, s2, s3):
+	# your code goes here
+	s=(s1+s2+s3)/2
+	a=(s*(s-s1)*(s-s2)*(s-s3))**0.5
+	# pass
+	return a
