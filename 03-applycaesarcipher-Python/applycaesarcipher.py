@@ -11,7 +11,18 @@
 
 
 def fun_applycaesarcipher(msg, shift):
-	return ""
+	result = "" 
+	for i in range(len(msg)):  
+		char = msg[i]
+		if char.isalpha()==False:
+			result+=char
+		elif (char.isupper()):
+			result += chr((ord(char) + shift - 65) % 26 + 65)
+		else:
+			result += chr((ord(char) + shift - 97) % 26 + 97)
+	return result
+			# return ""
+# print(fun_applycaesarcipher("zodiac", -2))
 
 
 
