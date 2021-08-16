@@ -1,3 +1,4 @@
+# Source:Geeks for Geeks
 # removeRowAndCol (non-destructive and destructive)
 # Here we will write removeRowAndCol(row, col), 
 # Do not use copy.deepcopy and directly construct 
@@ -23,6 +24,20 @@
 
 def removeRowAndCol(L, row, col):
     # Your code goes here...
-    pass
+    a=[]
+    for i in range(len(L)):
+        if i!= row:
+            a.append(L[i])
+    for i in a:
+        del i[col]
+    return a
+
+    # pass
 
 # Write your own test cases.
+L=[ [ 2, 3, 4, 5],[ 8, 7, 6, 5],[ 0, 1, 2, 3] ]
+o=[[ 2, 3, 5],[ 0, 1, 3] ]
+
+assert (removeRowAndCol(L,1,2)==o)
+print("pass")
+
