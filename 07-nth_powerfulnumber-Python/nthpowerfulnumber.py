@@ -7,4 +7,43 @@
 
 def nthpowerfulnumber(n):
 	# Your code goes here
-	pass
+	if n==0:
+		return 1
+	l=[1]
+	i=1
+	while(len(l)<=n):
+		a=fact(i)
+		print(a)
+		b=squares(a,i)
+		if b==True:
+			l.append(i)
+		i+=1
+	return l[n]
+
+def fact(n):
+	l=[]
+	for i in range(2,n):
+		if n%i==0:
+			if(prime(i)):
+				l.append(i)
+	return l
+
+def squares(l,n):
+	if len(l)==0:
+		return False
+	for i in l:
+		if n%(i**2)!=0:
+			return False
+	return True
+
+
+def prime(a):
+	if (a<2):
+		return False
+	for i in range(2,a):
+		if (a%i==0):
+			return False
+	return True
+
+	# pass
+print(nthpowerfulnumber(5))
