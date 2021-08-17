@@ -1,3 +1,4 @@
+
 # isMostlyMagicSquare(a) [15 pts]
 # Write the function isMostlyMagicSquare(a) that takes an 2d list of numbers, which you may assume is an NxN square 
 # with N>0, and returns True if it is "mostly magic" and False otherwise, where a square is "mostly magic" if:
@@ -12,7 +13,44 @@
 # [ [ 1, 2],
 #   [ 2, 1]]
 # Each row and each column add to 3, but one diagonal adds to 2 and the other to 4.
-
+# source:took some help from friend
 def ismostlymagicsquare(a):
 	# Your code goes here
-	pass
+	l=[]
+	for row in range(len(a)):
+		s=sum(a[row])
+		l.append(s)
+	
+	if len(set(l)) != 1:
+		return False
+	x=0
+	for col in range(len(a)):
+		for row in range(len(a)):
+			x+=a[row][col]
+		l.append(x)
+		x=0
+	
+	if len(set(l)) != 1:
+		return False
+			
+	r=0
+	for row in range(len(a)):
+		for col in range(len(a)):
+			if row==col:
+				r+=a[row][col]
+	l.append(r)
+	if len(set(l)) != 1:
+		return False
+	z=0
+	for row in range(len(a)):
+		for col in range(len(a)):
+			if (row+col)==(len(a)-1):
+				z+=a[row][col]
+				
+	l.append(z)
+	if len(set(l)) != 1:
+		return False
+
+	return True
+
+	# pass
