@@ -9,4 +9,8 @@
 
 def largestperfectsquare(n):
 	# your code goes here
+	a=(int(n**0.5))
+	return a**2
+
+
 	pass
