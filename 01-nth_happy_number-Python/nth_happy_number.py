@@ -14,6 +14,27 @@
 # assert(nth_happy_number(7) == 28)
 # assert(nth_happy_number(8) == 31)
 
-
 def nth_happy_number(n):
-	return 0
+	found = 1
+	guess = 0
+	while(found<=n):
+		guess+=1
+		if(ishappynumber(guess)):
+			found+=1
+	return guess
+def ishappynumber(n):
+	# your code goes here
+	if(n==1 or n==7):
+		return True
+	while (n>=10):
+		n=squares(n)
+		if(n==1):
+			return True
+	return False
+
+def squares(n):
+	s= 0
+	while(n):
+		s+= (n % 10) * (n % 10)
+		n = int(n / 10)
+	return s
