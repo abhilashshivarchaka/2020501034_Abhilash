@@ -6,4 +6,13 @@
 
 def isrotated(str1, str2):
 	#Your code goes here
+	if len(str1)!= len(str2):
+		return False
+	c=str2[0]
+	a=str1.find(c)
+	s=str1[a:]+str1[:a]
+	if s==str2:
+
+		return True
+	return False
 	pass
