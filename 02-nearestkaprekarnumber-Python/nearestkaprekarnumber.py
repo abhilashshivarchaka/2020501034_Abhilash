@@ -13,4 +13,43 @@
 import math
 
 def fun_nearestkaprekarnumber(n):
-    return 1
+    
+    nleft=n
+    nright=n
+    cleft=0
+    cright=0
+    fleft=False
+    fright=False
+    while fleft==False:
+        if(isKaprekar(nleft)):
+            fleft=True
+        else:
+            cleft+=1
+            nleft-=1
+    while fright==False:
+        if(isKaprekar(nright)):
+            fright=True
+        else:
+            cright+=1
+            nright+=1
+    if(cleft<=cright):
+        return nleft
+    else:
+        return nright
+
+
+    # return 1
+
+def isKaprekar(n):
+    if(n==1):
+        return True
+    dc=len(str(n*n))
+    sq=n*n
+    for i in range(dc-1):
+        p=10**(i+1)
+        if(p==n):
+            continue
+        s=(sq//p)+(sq%p)
+        if(s==n):
+            return True
+    return False
