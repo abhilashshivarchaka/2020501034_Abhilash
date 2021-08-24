@@ -5,4 +5,26 @@
 
 def nthautomorphicnumbers(n):
 	# Your code goes here
-	pass
+	
+	found = 1
+	guess = -1
+	while(found<=n):
+		guess+=1
+		if(isAutomorphic(guess)):
+			found+=1
+	return guess
+
+
+def isAutomorphic(N) :
+  
+    
+    sq = N * N
+    while (N > 0) :
+        if (N % 10 != sq % 10) :
+            return False
+        N //= 10
+        sq //= 10
+    
+    return True
+   
+print(isAutomorphic(5))
