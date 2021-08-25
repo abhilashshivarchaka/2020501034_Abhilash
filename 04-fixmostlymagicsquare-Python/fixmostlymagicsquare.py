@@ -8,3 +8,36 @@
 
 def fixmostlymagicsquare(L):
 	# Your code goes here
+	rsl=[]
+	for row in range(len(L)):
+		s=sum(L[row])
+		rsl.append(s)
+	for i in range(len(rsl)):
+		c=getcount(rsl,rsl[i])
+		if c==1:
+			r=i
+			break
+	csl=[]
+	x=0
+	for  col in range(len(L)):
+		for row in range(len(L)):
+			x+=L[row][col]
+		csl.append(x)
+		x=0
+	for i in range(len(csl)):
+		c=getcount(csl,csl[i])
+		if c==1:
+			col=i
+			break
+	diff=max(rsl)-min(rsl)
+	L[r][col]-= diff
+	return L
+
+def getcount(a,v):
+	c=0
+	for i in range(len(a)):
+		if a[i]==v:
+			c+=1
+	return c
+	
+	
