@@ -18,6 +18,7 @@ tree.insert(5)
 @pytest.mark.parametrize('check,result',[
     (tree.search(5), True), (tree.search(6), False),
 ])
+
 def test_classiness2(check, result):
     assert check == result
 
