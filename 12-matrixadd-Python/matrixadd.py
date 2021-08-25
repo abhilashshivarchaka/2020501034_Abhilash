@@ -17,4 +17,17 @@
 
 def matrixadd(L, M):
 	# Your code goes here
-	pass
+	if len(L[0])!=len(M[0]) or len(L)!=len(M):
+		return None
+	for i in range(1,len(L)):
+		if(len(L[i])!=len(L[i-1])):
+			return None
+	for i in range(1,len(M)):
+		if(len(M[i])!=len(M[i-1])):
+			return None
+	result=[[0 for i in range(len(M[0]))] for j in range (len(L))]
+	for i in range(len(L)):
+   		for j in range(len(M[0])):
+			   result[i][j] = L[i][j] + M[i][j]
+	return result
+	# pass
