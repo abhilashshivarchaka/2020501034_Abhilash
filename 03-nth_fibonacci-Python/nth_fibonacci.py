@@ -9,4 +9,10 @@
 
 def fun_nthfibonaccinumber(n):
 	# your code goes Here
-	return 0
+	if n==0:
+		return 1
+	elif n==1:
+		return 1
+	else:
+		return fun_nthfibonaccinumber(n-1)+fun_nthfibonaccinumber(n-2)
+ 
