@@ -12,5 +12,27 @@
 
 
 def fun_isfactorish(n):
-	return False
+	n=abs(n)
+	if len(str(n))!=3:
+		return False
+	if "0" in str(n):
+		return False
+	for i in range(len(str(n))-1):
+		for j in range(i+1,len(str(n))):
+			if str(n)[i]==str(n)[j]:
+				return False
+	x=n
+	c=x%10
+	if n%c!=0:
+		return False
+	x=x//10
+	c=x%10
+	if n%c!=0:
+		return False
+	x=x//10
+	c=x%10
+	if n%c!=0:
+		return False
+
+	return True
 
