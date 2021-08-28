@@ -9,6 +9,19 @@
 
 
 
-def fun_getaverage(s): 
-	return 0.0
-
+def fun_getaverage(s):
+	a=s.split(",")
+	sum=0
+	count=0
+	
+	for  i in a:
+		if i.isnumeric():
+			sum+=int(i)
+			count+=1
+			print(i)
+	if count==0:
+		return 0
+	avg=sum/count
+	
+	return avg
+print(fun_getaverage('13,excused,14,absent'))
