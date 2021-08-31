@@ -13,6 +13,42 @@
 # Again, you do not need to sort the list. We didn't sort it in our sample solution. We just tracked the two largest 
 # values as we recursively traversed the list. Also, you may not use loops/iteration in this problem
 
+def recursion_binarysearchvalues(L, v):
+	# Your codes goes here
+	return binsearch(L,v,0,(len(L)-1))
+	
+
+
+def binsearch(L,v,lo,hi,l=[]):
+	mid=lo+((hi-lo)//2)
+	if(lo>hi):
+		return l
+	if(L[mid]==v and lo<=hi):
+		l.append((mid,L[mid]))
+		return l
+	elif(L[mid]>v and lo<=hi):
+		l.append((mid,L[mid]))
+		hi=mid-1
+	elif(L[mid]<v and lo<=hi):
+		l.append((mid,L[mid]))
+
+
+
+
 def recursion_secondlargest(L):
-	# Your code goes here
-	pass
+    if len(L) <= 1:
+        return None
+    else:
+        return secondlargest(2,L)
+ 
+
+
+
+def secondlargest(n,L=[]):
+    m=max(L)
+    if L.count(m) >= 2:
+        return m
+    if n == 1:
+        return m
+    else:
+        return secondlargest(n-1, [x for x in L if x!=m])
