@@ -16,7 +16,22 @@
 
 def cw(s):
     # Your code goes here...
-    return ""
+    l=[]
+    for i in s:
+        if i.isspace():
+            continue
+        else:
+            l.append(i)
+    r=""
+    for i in l:
+        r+=i+" "
+    r=r[:-1]
+    if(s[-1].isspace()):
+        r+=" "
+    return r
+
+
+    # return ""
 
 assert(cw("a\nb") == "a b")
 assert(cw("a\n   \t    b") == "a b")
