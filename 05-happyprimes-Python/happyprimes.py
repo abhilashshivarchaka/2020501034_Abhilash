@@ -9,6 +9,37 @@
 # Note: the autograder will grade each of the following functions, so they are required. 
 # However, they also are here specifically because they are just the right helper 
 # functions to make nthHappyNumber(n) easier to write!
+# source:Geeks for geeks
+
 def ishappyprimenumber(n):
     # Your code goes here
-    pass
+    if((isHappynumber(n)) and isPrime(n)):
+        return True
+    return False
+
+def isHappynumber(n): 
+	slow = n
+	fast = n
+	while(True):  
+		slow = squareSum(slow)
+		fast = squareSum(squareSum(fast))
+		if(slow != fast): 
+			continue
+		else: 
+			break
+	return (slow == 1)
+
+def squareSum(n): 
+	sqSum = 0
+	while(n): 
+		sqSum += (n % 10) * (n % 10)
+		n = int(n / 10)
+	return sqSum
+
+def isPrime(n):
+    if(n<2):
+        return False
+    for i in range(2,n):
+        if(n%i==0):
+            return False
+    return True
